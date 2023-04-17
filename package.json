@@ -1,5 +1,5 @@
 {
-  "name": "tracboard",
+  "name": "pb-birthday",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -22,8 +22,6 @@
     "antd": "^5.4.0",
     "eslint": "^8.0.1",
     "eslint-config-next": "13.2.4",
-    "highcharts": "^10.3.3",
-    "highcharts-react-official": "^3.2.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "next": "13.2.4",
