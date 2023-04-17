@@ -1,0 +1,46 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url('public/images/hero.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* .layout::before {
+  content: "";
+  background-image: url('public/images/hero.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+} */
+
+.content {
+  /* background: blue; */
+  width: 60%;
+  max-height: 100%;
+  padding: auto 80%;
+}
+
+.header {
+  /* padding: 0 100; */
+  padding: 0 16%;
+  margin: 100 0;
+  border: 5px solid red;
+  background-color: transparent;
+  height: 200px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.header p { 
+  margin: 0;
+}
