@@ -5,9 +5,10 @@
     // that you want to lint here
     "src",
     "tests",
-
+    "app",
+    "pages",
     // add all files in which you see
     // the "parserOptions.project" error
-    ".eslintrc.js"
+    ".eslintrc.json"
   ]
 }
