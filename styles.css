@@ -1,3 +1,7 @@
+:root, *, p, span {
+  font-family: 'Montserrat', sans-serif !important ;
+}
+
 .layout {
   min-height: 100vh;
   display: flex;
@@ -6,6 +10,45 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.formDivider {
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.button {
+  width: 160px;
+  background-color: #ffc700;
+  height: 52px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+}
+
+.button-container .ant-btn-primary:hover {
+  color: #ffc700;
+  background-color: #fff;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.resposta-container {
+  display: flex;
+  justify-content: space-between;
+  height: 200px;
+  align-items: center;
+  width: 100%;
+}
+
+.resposta-cor {
+  color: #00BBC3
 }
 
 /* .layout::before {
@@ -33,14 +76,24 @@
   /* padding: 0 100; */
   padding: 0 16%;
   margin: 100 0;
-  border: 5px solid red;
+  /* border: 5px solid red; */
   background-color: transparent;
   height: 200px;
   color: white;
   display: flex;
   flex-direction: column;
+  margin-top: 90px;
 }
 
-.header p { 
+.header p {
   margin: 0;
+}
+
+.integers {
+  font-size: 45px;
+  font-weight: 700;
+}
+
+.decimals {
+  font-weight: 700;
 }

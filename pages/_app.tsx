@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import Head from 'next/head'
 import React from 'react'
 import { Layout } from 'antd'
@@ -17,6 +18,17 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
         />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Layout className="layout">
         <Content className="content">
@@ -35,8 +47,6 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
             <div
               style={{ width: '100%', display: 'flex', alignItems: 'flex-end' }}
             >
-              {/* <div> */}
-              {/* #00BBC3 - Cor padrao */}
               <strong
                 style={{
                   fontSize: '40px',
