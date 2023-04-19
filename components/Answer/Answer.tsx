@@ -1,8 +1,12 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import React from 'react'
 import type { NextPage } from 'next'
-import { LineOutlined } from '@ant-design/icons'
+import { LineOutlined, LeftCircleOutlined } from '@ant-design/icons'
 import useCalculation from '../../libs/hooks/useCalculation'
 import { useUser } from 'component/context/UserContext'
+import Router from 'next/router'
+import { Button, Tooltip } from 'antd'
+import style from '../../styles/answer.module.css'
 
 const Answer: NextPage = () => {
   const { user } = useUser()
@@ -10,53 +14,45 @@ const Answer: NextPage = () => {
   const value = useCalculation(user)
 
   return (
-    <div className="resposta-container">
-      <div
-        style={{
-          textAlign: 'center',
-          margin: 'auto',
-          fontSize: '18px',
-          color: '#00BBC3',
-        }}
-      >
-        <span style={{ fontSize: '18px', fontWeight: 650 }}>
-          Você pode receber até
-        </span>
-        <br />
-        <span style={{ lineHeight: 1 }}>
-          <span style={{ color: '#000', fontWeight: 700 }}>R$</span>{' '}
-          <span className="integers">{isNaN(value) ? '0' : value}</span>,
-          <span className="decimals">00</span>
-        </span>
-      </div>
-      <LineOutlined
-        style={{
-          transform: 'rotate(90deg)',
-          fontSize: '80px',
-          color: 'lightgray',
-          opacity: 0.09,
-          fontWeight: 'lighter',
-        }}
-      />
-      <div
-        style={{
-          textAlign: 'left',
-          margin: 'auto',
-          fontSize: 10,
-          fontWeight: 650,
-        }}
-      >
-        <span className="resposta-cor">
-          Esta simulação traz valores aproximados.
-        </span>{' '}
-        Para <br />
-        calcular o valor exato,{' '}
-        <span className="resposta-cor">entre em contato com o</span> <br />
-        <span className="resposta-cor">
-          Smile. Co a consultar seu saldo no app do FGTS.
-        </span>
-      </div>
-    </div>
+    <>
+      <section className={style.answer_container}>
+        <section className={style.value_details}>
+          <span style={{ fontSize: '18px', fontWeight: 650 }}>
+            Você pode receber até
+          </span>
+          <br />
+          <span style={{ lineHeight: 1 }}>
+            <span style={{ color: '#000', fontWeight: 700 }}>R$</span>{' '}
+            <span className={style.integers}>{isNaN(value) ? '0' : value}</span>
+            ,<span className={style.decimals}>00</span>
+          </span>
+        </section>
+        <LineOutlined className={style.line_details} />
+        <section className={style.text_details}>
+          <span className={style.answer_cor}>
+            Esta simulação traz valores aproximados.
+          </span>{' '}
+          Para <br />
+          calcular o valor exato,{' '}
+          <span className={style.answer_cor}>entre em contato com o</span>{' '}
+          <br />
+          <span className={style.answer_cor}>
+            Smile. Co a consultar seu saldo no app do FGTS.
+          </span>
+        </section>
+      </section>
+      <section className={style.back_button_container}>
+        <Tooltip placement="bottom" title={'Voltar para a tela inicial'}>
+          <Button
+            className={style.back_button}
+            icon={<LeftCircleOutlined style={{ fontSize: '30px' }} />}
+            type="link"
+            onClick={async () => await Router.push('/')}
+            size="large"
+          />
+        </Tooltip>
+      </section>
+    </>
   )
 }
 

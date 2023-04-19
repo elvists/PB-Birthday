@@ -1,0 +1,11 @@
+:root,
+*,
+p,
+span {
+  font-family: 'Montserrat', sans-serif !important ;
+}
+
+.ant-btn-primary:hover {
+  color: var(--btn-color) !important;
+  background-color: var(--off-white) !important;
+}

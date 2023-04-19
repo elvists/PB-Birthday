@@ -29,4 +29,3 @@ Abra [http://localhost:3000](http://localhost:3000) com seu navegador para ver o
 ## Deploy na Vercel
 
 Para acessar o resultado do desafio na vercel [acesse](https://pb-birthday.vercel.app/) para ver o resultado
-

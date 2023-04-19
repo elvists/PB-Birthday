@@ -1,0 +1,35 @@
+.formDivider {
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.button_container {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  width: 160px;
+  background-color: var(--btn-color);
+  height: 52px;
+  box-shadow: 0px 0px 3px 0px var(--shadow);
+  border-radius: 2px;
+}
+
+.input_size_right {
+  width: 97.5%;
+  margin-right: 2.5%;
+}
+
+.input_size_left {
+  width: 97.5%;
+  margin-left: 2.5%;
+}
+
+.form_item_width {
+  width: 50%;
+}

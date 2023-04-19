@@ -1,16 +1,16 @@
+/* eslint-disable @typescript-eslint/no-confusing-void-expression */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable prefer-promise-reject-errors */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-misused-promises */
-/* eslint-disable @typescript-eslint/no-confusing-void-expression */
-/* eslint-disable prefer-promise-reject-errors */
 import React from 'react'
 import { Button, DatePicker, Form, Input, InputNumber } from 'antd'
-// import locale from 'antd/es/locale/pt_BR'
 import type { User } from 'component/types/user'
 import type { AxiosError } from 'axios'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import { useUser } from 'component/context/UserContext'
+import style from '../../styles/submission.module.css'
 
 const Submission = () => {
   const [form] = Form.useForm()
@@ -43,6 +43,10 @@ const Submission = () => {
     }
   }
 
+  const moneyFormatter = (value: any) =>
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    `R$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+
   return (
     <Form
       layout={'vertical'}
@@ -50,11 +54,9 @@ const Submission = () => {
       style={{ margin: 'auto' }}
       onFinish={onFinish}
     >
-      <div className="formDivider">
+      <div className={style.formDivider}>
         <Form.Item
-          style={{
-            width: '50%',
-          }}
+          className={style.form_item_width}
           label="Qual seu nome?"
           rules={[
             {
@@ -65,14 +67,12 @@ const Submission = () => {
           name="name"
         >
           <Input
-            style={{ width: '97.5%', marginRight: '2.5%' }}
+            className={style.input_size_right}
             placeholder="ex.: Guilherme Neves"
           />
         </Form.Item>
         <Form.Item
-          style={{
-            width: '50%',
-          }}
+          className={style.form_item_width}
           name="phone"
           label="Qual seu telefone?"
           rules={[
@@ -87,17 +87,15 @@ const Submission = () => {
           ]}
         >
           <Input
-            style={{ width: '97.5%', marginLeft: '2.5%' }}
+            className={style.input_size_left}
             inputMode="tel"
             placeholder="ex.: (21) 98765-9087"
           />
         </Form.Item>
       </div>
-      <div className="formDivider">
+      <div className={style.formDivider}>
         <Form.Item
-          style={{
-            width: '50%',
-          }}
+          className={style.form_item_width}
           name="balance"
           label="Qual seu saldo?"
           rules={[
@@ -108,20 +106,15 @@ const Submission = () => {
           ]}
         >
           <InputNumber
-            style={{ width: '97.5%', marginRight: '2.5%' }}
+            className={style.input_size_right}
             placeholder="ex.: R$ 5.000,00"
             controls={false}
-            formatter={(value: any) =>
-              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-              `R$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-            }
+            formatter={moneyFormatter}
             parser={(value: any) => value?.replace(/\D/g, '')}
           />
         </Form.Item>
         <Form.Item
-          style={{
-            width: '50%',
-          }}
+          className={style.form_item_width}
           rules={[
             {
               required: true,
@@ -132,16 +125,15 @@ const Submission = () => {
           label="Qual seu mês de aniversário?"
         >
           <DatePicker
-            style={{ width: '97.5%', marginLeft: '2.5%' }}
+            className={style.input_size_left}
             format={dateFormat}
-            // locale={locale}
             picker="month"
             placeholder="Selecione..."
           />
         </Form.Item>
       </div>
-      <Form.Item className="button-container">
-        <Button type="primary" className="button" htmlType="submit">
+      <Form.Item className={style.button_container}>
+        <Button type="primary" className={style.button} htmlType="submit">
           Ver Proposta
         </Button>
       </Form.Item>
