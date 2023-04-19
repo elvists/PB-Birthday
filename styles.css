@@ -1,4 +1,7 @@
-:root, *, p, span {
+:root,
+*,
+p,
+span {
   font-family: 'Montserrat', sans-serif !important ;
 }
 
@@ -48,7 +51,7 @@
 }
 
 .resposta-cor {
-  color: #00BBC3
+  color: #00bbc3;
 }
 
 /* .layout::before {
@@ -83,6 +86,20 @@
   display: flex;
   flex-direction: column;
   margin-top: 90px;
+}
+
+.header-first-name {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+.header-text {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
 }
 
 .header p {

@@ -10,18 +10,20 @@ import type { User } from 'component/types/user'
 import type { AxiosError } from 'axios'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import { useUser } from 'component/context/UserContext'
 
 const Submission = () => {
   const [form] = Form.useForm()
-  const dateFormat = 'MM/YYYY'
+  const { setUser } = useUser()
   const router = useRouter()
 
+  const dateFormat = 'MM/YYYY'
+
   const onFinish = async (values: User) => {
+    setUser({ ...values, birthday: values.birthday.format('DD/MM/YYYY') })
+
     await form.validateFields()
-    await router.push({
-      pathname: '/resposta',
-      query: { ...values, birthday: values.birthday.format('DD/MM/YYYY') },
-    })
+    await router.push({ pathname: '/resposta', query: { name: values?.name } })
   }
 
   const phoneValidator = async (_: any, value: any): Promise<any> => {
