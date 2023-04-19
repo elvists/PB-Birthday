@@ -3,7 +3,6 @@ import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import { Card, ConfigProvider, Layout } from 'antd'
 import 'antd/dist/reset.css'
-import 'styles.css'
 import '../styles/design_tokens.css'
 import '../styles/globals.css'
 import '../styles/layout.css'
@@ -21,6 +20,12 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter()
 
   const [firstName, setFirstName] = useState<string | null | undefined>('')
+
+  const checkFirstName = (): boolean =>
+    firstName !== null &&
+    firstName !== '' &&
+    firstName !== 'undefined' &&
+    firstName !== undefined
 
   useEffect(() => {
     setFirstName(extractFirstName(String(router?.query?.name)))
@@ -51,7 +56,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
           <Layout className="layout">
             <Content className="content">
               <Header className="header">
-                <div>
+                <section className="header_image">
                   <Image
                     src="/icons/smile.svg"
                     alt="Ícone do header"
@@ -61,42 +66,30 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
                     style={{ marginRight: '5px' }}
                   />
                   <span>SMILE Co.</span>
-                </div>
-                <div
+                </section>
+                <section
                   className={
-                    firstName !== null &&
-                    firstName !== '' &&
-                    firstName !== 'undefined' &&
-                    firstName !== undefined
-                      ? 'header-first-name'
-                      : 'header-text'
+                    checkFirstName() ? 'header-first-name' : 'header-text'
                   }
                 >
-                  <strong
-                    style={{
-                      fontSize: '40px',
-                      display: 'inline-block',
-                      width: '65%',
-                      lineHeight: '1',
-                      fontStyle: 'italic',
-                    }}
-                  >
-                    {firstName !== null &&
-                    firstName !== '' &&
-                    firstName !== 'undefined' &&
-                    firstName !== undefined ? (
-                      <span style={{ fontSize: 70 }}>Olá, {firstName}!</span>
+                  <strong className="header-text-strong">
+                    {checkFirstName() ? (
+                      <span className="header-text-strong-size">
+                        Olá, {firstName}!
+                      </span>
                     ) : (
                       <>
                         Use uma grana
-                        <br /> que já é sua e<br />
+                        <br /> que já é sua e <br />
                         saia do aperto.
                       </>
                     )}
                   </strong>
-                  <div style={{ width: '35%', lineHeight: 2, fontSize: 10 }}>
-                    <MoneyCollectOutlined />
-                    <strong> SAQUE ANIVERSÁRIO</strong>
+                  <div className="header-text-details">
+                    <span>
+                      <MoneyCollectOutlined />
+                      <strong>SAQUE ANIVERSÁRIO</strong>
+                    </span>
                     <br />
                     <span>
                       <LineOutlined style={{ transform: 'rotate(90deg)' }} />
@@ -104,14 +97,9 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
                       quanto você poderá receber
                     </span>
                   </div>
-                </div>
+                </section>
               </Header>
-              <Card
-                style={{
-                  margin: '30px auto',
-                  width: '80%',
-                }}
-              >
+              <Card className="card-content">
                 <Component {...pageProps} />
               </Card>
             </Content>

@@ -17,12 +17,12 @@ const Answer: NextPage = () => {
     <>
       <section className={style.answer_container}>
         <section className={style.value_details}>
-          <span style={{ fontSize: '18px', fontWeight: 650 }}>
+          <span className={style.text_money_response}>
             Você pode receber até
           </span>
           <br />
           <span style={{ lineHeight: 1 }}>
-            <span style={{ color: '#000', fontWeight: 700 }}>R$</span>{' '}
+            <span className={style.money_symbol}>R$</span>{' '}
             <span className={style.integers}>{isNaN(value) ? '0' : value}</span>
             ,<span className={style.decimals}>00</span>
           </span>

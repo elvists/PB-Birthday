@@ -42,7 +42,7 @@
   flex: 1 1 0;
   width: 0;
   text-align: left;
-  font-size: 10;
+  font-size: 10px;
   font-weight: 650;
 }
 
@@ -67,4 +67,49 @@
 .back_button .ant-btn-link:not(:disabled):hover {
   color: var(--green) !important;
   opacity: 1;
+}
+
+.money_symbol {
+  color: #000;
+  font-weight: 700;
+}
+
+.text_money_response {
+  font-size: 18px;
+  font-weight: 650;
+}
+
+@media (max-width: 1024px) {
+  .text_details {
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .text_details br {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .line_details {
+    display: none;
+  }
+
+  .value_details,
+  .text_details {
+    flex: auto;
+    width: auto;
+    margin-bottom: 5px;
+  }
+
+  .answer_container {
+    display: flex;
+    height: 150px;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .line_details {
+    text-align: center;
+  }
 }

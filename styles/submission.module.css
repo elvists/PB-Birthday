@@ -33,3 +33,18 @@
 .form_item_width {
   width: 50%;
 }
+
+@media (max-width: 1024px) {
+  .formDivider {
+    flex-direction: column;
+  }
+
+  .form_item_width {
+    width: 100%;
+  }
+
+  .input_size_right, .input_size_left {
+    width: 100%;
+    margin: 0;
+  }
+}
