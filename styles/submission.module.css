@@ -43,7 +43,8 @@
     width: 100%;
   }
 
-  .input_size_right, .input_size_left {
+  .input_size_right,
+  .input_size_left {
     width: 100%;
     margin: 0;
   }

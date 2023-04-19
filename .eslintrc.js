@@ -18,4 +18,9 @@ module.exports = {
     'react/prop-types': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 }
