@@ -13,6 +13,7 @@ import { UserProvider } from 'component/context/UserContext'
 import { extractFirstName } from 'component/utils/utis'
 import { useRouter } from 'next/router'
 import ptBR from 'antd/lib/locale/pt_BR'
+import { Analytics } from '@vercel/analytics/react'
 
 const { Header, Content } = Layout
 
@@ -101,6 +102,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
               </Header>
               <Card className="card-content">
                 <Component {...pageProps} />
+                <Analytics />
               </Card>
             </Content>
           </Layout>
