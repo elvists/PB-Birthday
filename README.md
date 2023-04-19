@@ -1,6 +1,6 @@
 # Paraná Banco Birthday
 
-<img src="./assets/parana-banco.png" width="100%" />
+<img src="assets/parana-banco.jpg" width="100%" />
 
 ## Getting Started
 
